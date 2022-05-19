@@ -3,7 +3,7 @@ extends KinematicBody2D
 const UP = Vector2(0,-1)
 const GRAVITY = 20
 const SPEED = 200
-const JUMP_HEIGHT = -550
+const JUMP_HEIGHT = -350
 var motion = Vector2()
 
 enum Player_State {IDLE, MOVE_LEFT, MOVE_RIGHT, JUMP, DOUBLE_JUMP}

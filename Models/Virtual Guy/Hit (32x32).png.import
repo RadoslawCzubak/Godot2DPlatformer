@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Run (32x32).png-38c6338232e0a2cd058356d8a2c69477.stex"
+path="res://.import/Hit (32x32).png-aa6b92a4a16e17c11bf0c38b58444e30.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite_tiles/Virtual Guy/Run (32x32).png"
-dest_files=[ "res://.import/Run (32x32).png-38c6338232e0a2cd058356d8a2c69477.stex" ]
+source_file="res://Models/Virtual Guy/Hit (32x32).png"
+dest_files=[ "res://.import/Hit (32x32).png-aa6b92a4a16e17c11bf0c38b58444e30.stex" ]
 
 [params]
 

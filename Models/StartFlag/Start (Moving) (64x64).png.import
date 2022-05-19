@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Idle (32x32).png-17e0761a6854de6108ec80de51f1bccf.stex"
+path="res://.import/Start (Moving) (64x64).png-e8a68bba00f0dce5521f94eff9bd2e15.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite_tiles/Virtual Guy/Idle (32x32).png"
-dest_files=[ "res://.import/Idle (32x32).png-17e0761a6854de6108ec80de51f1bccf.stex" ]
+source_file="res://Models/StartFlag/Start (Moving) (64x64).png"
+dest_files=[ "res://.import/Start (Moving) (64x64).png-e8a68bba00f0dce5521f94eff9bd2e15.stex" ]
 
 [params]
 
