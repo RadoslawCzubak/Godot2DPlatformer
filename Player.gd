@@ -29,7 +29,8 @@ func _physics_process(delta):
 	if is_on_floor():
 		if Input.is_action_just_pressed("ui_up"):
 			motion.y = JUMP_HEIGHT	
-			state = Player_State.JUMP
+	else:
+		state = Player_State.JUMP	
 		
 	motion = move_and_slide(motion, UP)
 	match state:
@@ -41,7 +42,7 @@ func _physics_process(delta):
 		Player_State.MOVE_RIGHT:
 			$AnimatedSprite.animation = "walking"	
 			$AnimatedSprite.set_flip_h(false)
-		Player_State.MOVE_RIGHT:
+		Player_State.JUMP:
 			$AnimatedSprite.animation = "jump"	
 	
 	pass
