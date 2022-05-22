@@ -14,3 +14,13 @@ func _on_Strawberry_point_collected():
 
 func _on_Player_hp_changed(new_hp_points):
 	$HealthLabel/Label.text = "x " + String(new_hp_points)
+
+
+func _on_level_ended():
+	$LevelResultLabel.visible = true
+	$LevelResultLabel.text = "You won!"
+
+
+func _on_character_death():
+	$LevelResultLabel.visible = true
+	$LevelResultLabel.text = "You lost!"

@@ -14,6 +14,9 @@ var state = Player_State.IDLE
 
 export var player_hp = 3
 export var HIT_JUMP_MULTIPLIER = 1.5
+export var TRAMPOLINE_JUMP_MULTIPLIER = 2.5
+
+signal character_death
 
 signal hp_changed(new_hp_points)
 
@@ -56,10 +59,22 @@ func _physics_process(delta):
 	pass
 
 
-func _on_AngryRock_collision_with_enemy():
+func bounce():
+	motion.y = JUMP_HEIGHT * HIT_JUMP_MULTIPLIER
+
+
+func _on_collision_with_enemy():
 	player_hp -= 1
 	bounce()
 	emit_signal("hp_changed", player_hp)
+	if(player_hp == 0):
+		emit_signal("character_death")
+		queue_free()
+	
+	
+func trampolineJump():
+	motion.y = JUMP_HEIGHT * TRAMPOLINE_JUMP_MULTIPLIER
 
-func bounce():
-	motion.y = JUMP_HEIGHT * HIT_JUMP_MULTIPLIER
+
+func _on_level_ended():
+	print("You won!")
