@@ -11,8 +11,12 @@ config_version=4
 [application]
 
 config/name="Gra 2D"
-run/main_scene="res://Node2D.tscn"
+run/main_scene="res://Prefabs scenes/TitleMenu.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/resizable=false
 
 [layer_names]
 
