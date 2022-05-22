@@ -12,6 +12,14 @@ var motion = Vector2()
 enum Player_State {IDLE, MOVE_LEFT, MOVE_RIGHT, JUMP, DOUBLE_JUMP}
 var state = Player_State.IDLE
 
+export var player_hp = 3
+export var HIT_JUMP_MULTIPLIER = 1.5
+
+signal hp_changed(new_hp_points)
+
+func _ready():
+	emit_signal("hp_changed", player_hp)
+
 func _physics_process(delta):
 	motion.y += GRAVITY
 	
@@ -46,3 +54,12 @@ func _physics_process(delta):
 			$AnimatedSprite.animation = "jump"	
 	
 	pass
+
+
+func _on_AngryRock_collision_with_enemy():
+	player_hp -= 1
+	bounce()
+	emit_signal("hp_changed", player_hp)
+
+func bounce():
+	motion.y = JUMP_HEIGHT * HIT_JUMP_MULTIPLIER
