@@ -1,4 +1,4 @@
-[gd_scene load_steps=164 format=2]
+[gd_scene load_steps=166 format=2]
 
 [ext_resource path="res://Models/Virtual Guy/Jump (32x32).png" type="Texture" id=1]
 [ext_resource path="res://Models/Virtual Guy/Double Jump (32x32).png" type="Texture" id=2]
@@ -25,6 +25,8 @@
 [ext_resource path="res://Prefabs scenes/Tree_decor.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Music/Intro Theme.mp3" type="AudioStream" id=24]
 [ext_resource path="res://Music/Retro Jump Classic 08.wav" type="AudioStream" id=25]
+[ext_resource path="res://Music/Retro PickUp 18.wav" type="AudioStream" id=26]
+[ext_resource path="res://Music/Retro PickUp Coin 07.wav" type="AudioStream" id=27]
 
 [sub_resource type="AtlasTexture" id=13]
 flags = 4
@@ -1273,7 +1275,6 @@ drag_margin_v_enabled = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 31 )
 animation = "idle"
-frame = 7
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -1288,6 +1289,9 @@ wait_time = 3.0
 [node name="JumpSound" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource( 25 )
 volume_db = -6.0
+
+[node name="HurtSound" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource( 26 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 32 )
@@ -1340,7 +1344,7 @@ position = Vector2( 55, 320 )
 
 [node name="StartFlag" type="AnimatedSprite" parent="StartFlag"]
 frames = SubResource( 76 )
-frame = 6
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartFlag"]
@@ -1485,7 +1489,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="EndZone"]
 frames = SubResource( 162 )
-frame = 6
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndZone"]
@@ -1550,6 +1554,9 @@ margin_right = 723.0
 margin_bottom = 314.0
 custom_fonts/normal_font = SubResource( 164 )
 text = "You won!"
+
+[node name="CollectSound" type="AudioStreamPlayer" parent="HUD"]
+stream = ExtResource( 27 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 24 )

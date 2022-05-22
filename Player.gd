@@ -70,13 +70,13 @@ func bounce():
 func _on_collision_with_enemy():
 	player_hp -= 1
 	bounce()
+	$HurtSound.play()
 	emit_signal("hp_changed", player_hp)
 	if(player_hp == 0):
 		emit_signal("character_death")
 		speed = 0
 		$Timer.start()
 		
-
 	
 	
 func trampolineJump():

@@ -9,6 +9,7 @@ func _ready():
 
 func _on_Strawberry_point_collected():
 	coins = coins + 1
+	$CollectSound.play()
 	_ready()
 
 
