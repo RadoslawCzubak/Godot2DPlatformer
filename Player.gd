@@ -5,13 +5,16 @@ const DOWN = Vector2(0,1)
 const RIGHT = Vector2(1,0)
 const LEFT = Vector2(-1,0)
 const GRAVITY = 20
-const SPEED = 200
+
 const JUMP_HEIGHT = -350
 var motion = Vector2()
 
 enum Player_State {IDLE, MOVE_LEFT, MOVE_RIGHT, JUMP, DOUBLE_JUMP}
 var state = Player_State.IDLE
 
+
+export var speed = 200
+var set_speed = speed
 export var player_hp = 3
 export var HIT_JUMP_MULTIPLIER = 1.5
 export var TRAMPOLINE_JUMP_MULTIPLIER = 2.5
@@ -27,11 +30,11 @@ func _physics_process(delta):
 	motion.y += GRAVITY
 	
 	if Input.is_action_pressed("ui_right"):
-		motion.x = SPEED
+		motion.x = speed
 		state = Player_State.MOVE_RIGHT
 		
 	elif Input.is_action_pressed("ui_left"):
-		motion.x = -SPEED
+		motion.x = -speed
 		state = Player_State.MOVE_LEFT
 	else:
 		motion.x=0
@@ -69,7 +72,10 @@ func _on_collision_with_enemy():
 	emit_signal("hp_changed", player_hp)
 	if(player_hp == 0):
 		emit_signal("character_death")
-		queue_free()
+		speed = 0
+		$Timer.start()
+		
+
 	
 	
 func trampolineJump():
@@ -78,3 +84,8 @@ func trampolineJump():
 
 func _on_level_ended():
 	print("You won!")
+
+
+func _on_Timer_timeout():
+	speed = set_speed
+	get_tree().change_scene("res://Node2D.tscn")

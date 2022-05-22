@@ -1,4 +1,4 @@
-[gd_scene load_steps=161 format=2]
+[gd_scene load_steps=162 format=2]
 
 [ext_resource path="res://Models/Virtual Guy/Jump (32x32).png" type="Texture" id=1]
 [ext_resource path="res://Models/Virtual Guy/Double Jump (32x32).png" type="Texture" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://EndZone.gd" type="Script" id=20]
 [ext_resource path="res://Models/End/End (Pressed) (64x64).png" type="Texture" id=21]
 [ext_resource path="res://fresh_fruit/Fresh Fruit.ttf" type="DynamicFontData" id=22]
+[ext_resource path="res://Prefabs scenes/Tree_decor.tscn" type="PackedScene" id=23]
 
 [sub_resource type="AtlasTexture" id=13]
 flags = 4
@@ -1176,6 +1177,36 @@ font_data = ExtResource( 22 )
 
 [node name="Level1" type="Node2D"]
 
+[node name="Decors" type="Node2D" parent="."]
+
+[node name="Tree_decor" parent="Decors" instance=ExtResource( 23 )]
+position = Vector2( 110, 297 )
+
+[node name="Tree_decor2" parent="Decors" instance=ExtResource( 23 )]
+position = Vector2( 414, 296 )
+
+[node name="Tree_decor3" parent="Decors" instance=ExtResource( 23 )]
+position = Vector2( 833, 231 )
+
+[node name="Tree_decor4" parent="Decors" instance=ExtResource( 23 )]
+position = Vector2( 886, 233 )
+
+[node name="Tree_decor5" parent="Decors" instance=ExtResource( 23 )]
+position = Vector2( 926, 234 )
+
+[node name="Tree_decor6" parent="Decors" instance=ExtResource( 23 )]
+position = Vector2( 983, 233 )
+
+[node name="Tree_decor7" parent="Decors" instance=ExtResource( 23 )]
+position = Vector2( 802.25, 43 )
+scale = Vector2( 0.995049, 1 )
+
+[node name="Tree_decor8" parent="Decors" instance=ExtResource( 23 )]
+position = Vector2( 324, 293 )
+
+[node name="Tree_decor9" parent="Decors" instance=ExtResource( 23 )]
+position = Vector2( 1005, 7 )
+
 [node name="Saws" type="Node2D" parent="."]
 
 [node name="Saw" parent="Saws" instance=ExtResource( 13 )]
@@ -1240,7 +1271,7 @@ drag_margin_v_enabled = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 31 )
 animation = "idle"
-frame = 10
+frame = 9
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -1248,6 +1279,9 @@ position = Vector2( 1, 3.5 )
 shape = SubResource( 39 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+
+[node name="Timer" type="Timer" parent="Player"]
+wait_time = 3.0
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 32 )
@@ -1300,6 +1334,7 @@ position = Vector2( 55, 320 )
 
 [node name="StartFlag" type="AnimatedSprite" parent="StartFlag"]
 frames = SubResource( 76 )
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartFlag"]
@@ -1320,7 +1355,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="FloatingPlatforms/Platform"]
 frames = SubResource( 131 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloatingPlatforms/Platform"]
@@ -1335,7 +1370,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="FloatingPlatforms/Platform2"]
 frames = SubResource( 131 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloatingPlatforms/Platform2"]
@@ -1350,7 +1385,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="FloatingPlatforms/Platform3"]
 frames = SubResource( 131 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloatingPlatforms/Platform3"]
@@ -1365,7 +1400,6 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="FloatingPlatforms/Platform4"]
 frames = SubResource( 131 )
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloatingPlatforms/Platform4"]
@@ -1446,6 +1480,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="EndZone"]
 frames = SubResource( 162 )
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndZone"]
@@ -1528,6 +1563,7 @@ text = "You won!"
 [connection signal="collision_with_enemy" from="Saws/Saw15" to="Player" method="_on_collision_with_enemy"]
 [connection signal="character_death" from="Player" to="HUD" method="_on_character_death"]
 [connection signal="hp_changed" from="Player" to="HUD" method="_on_Player_hp_changed"]
+[connection signal="timeout" from="Player/Timer" to="Player" method="_on_Timer_timeout"]
 [connection signal="collision_with_enemy" from="AngryRock" to="Player" method="_on_collision_with_enemy"]
 [connection signal="point_collected" from="Points/Strawberry" to="HUD" method="_on_Strawberry_point_collected"]
 [connection signal="point_collected" from="Points/Strawberry2" to="HUD" method="_on_Strawberry_point_collected"]
