@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=2]
+[gd_scene load_steps=126 format=2]
 
 [ext_resource path="res://Models/Virtual Guy/Jump (32x32).png" type="Texture" id=1]
 [ext_resource path="res://Models/Virtual Guy/Double Jump (32x32).png" type="Texture" id=2]
@@ -14,7 +14,65 @@
 [ext_resource path="res://Models/Obstacles/Falling Platforms/On (32x10).png" type="Texture" id=12]
 [ext_resource path="res://Prefabs scenes/Saw.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Prefabs scenes/AngryRock.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Strawberry.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Prefabs scenes/Strawberry.tscn" type="PackedScene" id=15]
+[ext_resource path="res://327725875021211.png" type="Texture" id=16]
+[ext_resource path="res://heart pixel art 254x254.png" type="Texture" id=17]
+[ext_resource path="res://HUD.gd" type="Script" id=18]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 128, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 160, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 192, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 224, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 256, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 288, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 320, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=13]
 flags = 4
@@ -111,63 +169,13 @@ flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 352, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=1]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=2]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=3]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 64, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 96, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=5]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 128, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=6]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 160, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 192, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=8]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 224, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=9]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 256, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=10]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 288, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=11]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 320, 0, 32, 32 )
-
 [sub_resource type="SpriteFrames" id=31]
 animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "idle",
+"speed": 15.0
+}, {
 "frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
 "loop": true,
 "name": "double jump",
@@ -182,11 +190,6 @@ animations = [ {
 "loop": true,
 "name": "walking",
 "speed": 20.0
-}, {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
-"loop": true,
-"name": "idle",
-"speed": 15.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=39]
@@ -877,6 +880,13 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=132]
 extents = Vector2( 16, 3.5 )
 
+[sub_resource type="StyleBoxFlat" id=133]
+bg_color = Color( 0, 0, 0, 0.290196 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="Level1" type="Node2D"]
 
 [node name="Saws" type="Node2D" parent="."]
@@ -978,7 +988,7 @@ position = Vector2( 55, 320 )
 
 [node name="StartFlag" type="AnimatedSprite" parent="StartFlag"]
 frames = SubResource( 76 )
-frame = 4
+frame = 14
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartFlag"]
@@ -998,7 +1008,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="FloatingPlatforms/Platform"]
 frames = SubResource( 131 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloatingPlatforms/Platform"]
@@ -1013,7 +1023,6 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="FloatingPlatforms/Platform2"]
 frames = SubResource( 131 )
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloatingPlatforms/Platform2"]
@@ -1028,7 +1037,6 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="FloatingPlatforms/Platform3"]
 frames = SubResource( 131 )
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloatingPlatforms/Platform3"]
@@ -1043,7 +1051,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="FloatingPlatforms/Platform4"]
 frames = SubResource( 131 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloatingPlatforms/Platform4"]
@@ -1055,16 +1063,102 @@ position = Vector2( 141, 242 )
 scale = Vector2( 1.25, 1.25 )
 
 [node name="Strawberry" parent="Points" instance=ExtResource( 15 )]
-position = Vector2( 21.6, 38.4 )
+position = Vector2( 26.4, 34.88 )
+scale = Vector2( 0.8, 0.8 )
 
 [node name="Strawberry2" parent="Points" instance=ExtResource( 15 )]
-position = Vector2( 85.6, 38.4 )
+position = Vector2( 26.4, 34.88 )
+scale = Vector2( 0.8, 0.8 )
 
 [node name="Strawberry3" parent="Points" instance=ExtResource( 15 )]
-position = Vector2( 53.6, 76.8 )
+position = Vector2( 847.2, 62.4 )
+scale = Vector2( 0.8, 0.8 )
 
 [node name="Strawberry4" parent="Points" instance=ExtResource( 15 )]
-position = Vector2( 392.8, -23.2 )
+position = Vector2( 949.6, 62.4 )
+scale = Vector2( 0.8, 0.8 )
 
 [node name="Strawberry5" parent="Points" instance=ExtResource( 15 )]
-position = Vector2( 832.8, 54.4 )
+position = Vector2( 591.2, 24 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="Strawberry6" parent="Points" instance=ExtResource( 15 )]
+position = Vector2( 680.8, 24 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="Strawberry7" parent="Points" instance=ExtResource( 15 )]
+position = Vector2( 412, -1.60001 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="Strawberry8" parent="Points" instance=ExtResource( 15 )]
+position = Vector2( 15.2, 36.8 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="Strawberry9" parent="Points" instance=ExtResource( 15 )]
+position = Vector2( 53.6, 75.2 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="Strawberry10" parent="Points" instance=ExtResource( 15 )]
+position = Vector2( 92, 36.8 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource( 18 )
+
+[node name="HealthLabel" type="Panel" parent="HUD"]
+margin_left = 786.0
+margin_top = 541.0
+margin_right = 882.0
+margin_bottom = 581.0
+custom_styles/panel = SubResource( 133 )
+
+[node name="TextureRect" type="TextureRect" parent="HUD/HealthLabel"]
+margin_left = 10.0
+margin_top = 8.0
+margin_right = 264.0
+margin_bottom = 262.0
+rect_scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 17 )
+
+[node name="Label" type="Label" parent="HUD/HealthLabel"]
+margin_left = 49.0
+margin_top = 13.0
+margin_right = 89.0
+margin_bottom = 27.0
+text = "x  ##"
+
+[node name="PointsLabel" type="Panel" parent="HUD"]
+margin_left = 888.0
+margin_top = 541.0
+margin_right = 984.0
+margin_bottom = 581.0
+custom_styles/panel = SubResource( 133 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="HUD/PointsLabel"]
+margin_left = 2.00006
+margin_top = -1.0
+margin_right = 3466.0
+margin_bottom = 3463.0
+rect_scale = Vector2( 0.012, 0.012 )
+texture = ExtResource( 16 )
+
+[node name="Label" type="Label" parent="HUD/PointsLabel"]
+margin_left = 46.0
+margin_top = 13.0
+margin_right = 86.0
+margin_bottom = 27.0
+text = "x  ##"
+
+[connection signal="point_collected" from="Points/Strawberry" to="HUD" method="_on_Strawberry_point_collected"]
+[connection signal="point_collected" from="Points/Strawberry2" to="HUD" method="_on_Strawberry_point_collected"]
+[connection signal="point_collected" from="Points/Strawberry3" to="HUD" method="_on_Strawberry_point_collected"]
+[connection signal="point_collected" from="Points/Strawberry4" to="HUD" method="_on_Strawberry_point_collected"]
+[connection signal="point_collected" from="Points/Strawberry5" to="HUD" method="_on_Strawberry_point_collected"]
+[connection signal="point_collected" from="Points/Strawberry6" to="HUD" method="_on_Strawberry_point_collected"]
+[connection signal="point_collected" from="Points/Strawberry7" to="HUD" method="_on_Strawberry_point_collected"]
+[connection signal="point_collected" from="Points/Strawberry8" to="HUD" method="_on_Strawberry_point_collected"]
+[connection signal="point_collected" from="Points/Strawberry9" to="HUD" method="_on_Strawberry_point_collected"]
+[connection signal="point_collected" from="Points/Strawberry10" to="HUD" method="_on_Strawberry_point_collected"]
