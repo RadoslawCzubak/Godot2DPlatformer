@@ -1,4 +1,4 @@
-[gd_scene load_steps=166 format=2]
+[gd_scene load_steps=169 format=2]
 
 [ext_resource path="res://Models/Virtual Guy/Jump (32x32).png" type="Texture" id=1]
 [ext_resource path="res://Models/Virtual Guy/Double Jump (32x32).png" type="Texture" id=2]
@@ -27,6 +27,9 @@
 [ext_resource path="res://Music/Retro Jump Classic 08.wav" type="AudioStream" id=25]
 [ext_resource path="res://Music/Retro PickUp 18.wav" type="AudioStream" id=26]
 [ext_resource path="res://Music/Retro PickUp Coin 07.wav" type="AudioStream" id=27]
+[ext_resource path="res://Prefabs scenes/Stones.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Prefabs scenes/Bush.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Prefabs scenes/SpikeHead.tscn" type="PackedScene" id=30]
 
 [sub_resource type="AtlasTexture" id=13]
 flags = 4
@@ -1181,36 +1184,6 @@ font_data = ExtResource( 22 )
 
 [node name="Level1" type="Node2D"]
 
-[node name="Decors" type="Node2D" parent="."]
-
-[node name="Tree_decor" parent="Decors" instance=ExtResource( 23 )]
-position = Vector2( 110, 297 )
-
-[node name="Tree_decor2" parent="Decors" instance=ExtResource( 23 )]
-position = Vector2( 414, 296 )
-
-[node name="Tree_decor3" parent="Decors" instance=ExtResource( 23 )]
-position = Vector2( 833, 231 )
-
-[node name="Tree_decor4" parent="Decors" instance=ExtResource( 23 )]
-position = Vector2( 886, 233 )
-
-[node name="Tree_decor5" parent="Decors" instance=ExtResource( 23 )]
-position = Vector2( 926, 234 )
-
-[node name="Tree_decor6" parent="Decors" instance=ExtResource( 23 )]
-position = Vector2( 983, 233 )
-
-[node name="Tree_decor7" parent="Decors" instance=ExtResource( 23 )]
-position = Vector2( 802.25, 43 )
-scale = Vector2( 0.995049, 1 )
-
-[node name="Tree_decor8" parent="Decors" instance=ExtResource( 23 )]
-position = Vector2( 324, 293 )
-
-[node name="Tree_decor9" parent="Decors" instance=ExtResource( 23 )]
-position = Vector2( 1005, 7 )
-
 [node name="Saws" type="Node2D" parent="."]
 
 [node name="Saw" parent="Saws" instance=ExtResource( 13 )]
@@ -1258,6 +1231,69 @@ position = Vector2( 338, 105 )
 [node name="Saw15" parent="Saws" instance=ExtResource( 13 )]
 position = Vector2( 295, 105 )
 
+[node name="Decors" type="Node2D" parent="."]
+
+[node name="Tree_decor" parent="Decors" instance=ExtResource( 23 )]
+position = Vector2( 110, 297 )
+
+[node name="Tree_decor2" parent="Decors" instance=ExtResource( 23 )]
+position = Vector2( 414, 296 )
+
+[node name="Tree_decor3" parent="Decors" instance=ExtResource( 23 )]
+position = Vector2( 832, 236 )
+
+[node name="Tree_decor4" parent="Decors" instance=ExtResource( 23 )]
+position = Vector2( 886, 233 )
+
+[node name="Tree_decor5" parent="Decors" instance=ExtResource( 23 )]
+position = Vector2( 926, 234 )
+
+[node name="Tree_decor6" parent="Decors" instance=ExtResource( 23 )]
+position = Vector2( 983, 233 )
+
+[node name="Tree_decor7" parent="Decors" instance=ExtResource( 23 )]
+position = Vector2( 802.25, 43 )
+scale = Vector2( 0.995049, 1 )
+
+[node name="Tree_decor8" parent="Decors" instance=ExtResource( 23 )]
+position = Vector2( 324, 299 )
+
+[node name="Tree_decor9" parent="Decors" instance=ExtResource( 23 )]
+position = Vector2( 1006, 12 )
+
+[node name="Stones" parent="Decors" instance=ExtResource( 28 )]
+position = Vector2( 719, -473 )
+
+[node name="Stones2" parent="Decors" instance=ExtResource( 28 )]
+position = Vector2( 984, 53 )
+
+[node name="Stones3" parent="Decors" instance=ExtResource( 28 )]
+position = Vector2( 1150, 87 )
+
+[node name="Stones4" parent="Decors" instance=ExtResource( 28 )]
+position = Vector2( 1276, 86 )
+
+[node name="Bush" parent="Decors" instance=ExtResource( 29 )]
+position = Vector2( 961, 280 )
+
+[node name="Bush2" parent="Decors" instance=ExtResource( 29 )]
+position = Vector2( 541, 280 )
+
+[node name="Bush3" parent="Decors" instance=ExtResource( 29 )]
+position = Vector2( 256, 345 )
+
+[node name="Bush4" parent="Decors" instance=ExtResource( 29 )]
+position = Vector2( 145, 343 )
+
+[node name="Bush5" parent="Decors" instance=ExtResource( 29 )]
+position = Vector2( 665, 58 )
+
+[node name="Bush6" parent="Decors" instance=ExtResource( 29 )]
+position = Vector2( 748, 89 )
+
+[node name="Stones5" parent="Decors" instance=ExtResource( 28 )]
+position = Vector2( 1008, 278 )
+
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 64, 252 )
 collision_mask = 94
@@ -1275,6 +1311,7 @@ drag_margin_v_enabled = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 31 )
 animation = "idle"
+frame = 7
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -1344,14 +1381,34 @@ position = Vector2( 55, 320 )
 
 [node name="StartFlag" type="AnimatedSprite" parent="StartFlag"]
 frames = SubResource( 76 )
-frame = 5
+frame = 15
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartFlag"]
 position = Vector2( 11, 28.5 )
 shape = SubResource( 77 )
 
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 55, 320 )
+
+[node name="SpikeHead" parent="Node2D" instance=ExtResource( 30 )]
+position = Vector2( 544, -639 )
+
+[node name="SpikeHead2" parent="Node2D" instance=ExtResource( 30 )]
+position = Vector2( 855, -811 )
+
+[node name="SpikeHead3" parent="Node2D" instance=ExtResource( 30 )]
+position = Vector2( 700, -859 )
+
 [node name="AngryRock" parent="." instance=ExtResource( 14 )]
+collision_mask = 3
+
+[node name="AngryRock2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1295, 80 )
+collision_mask = 3
+
+[node name="AngryRock3" parent="." instance=ExtResource( 14 )]
+position = Vector2( 705, 80 )
 collision_mask = 3
 
 [node name="FloatingPlatforms" type="Node2D" parent="."]
@@ -1365,7 +1422,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="FloatingPlatforms/Platform"]
 frames = SubResource( 131 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloatingPlatforms/Platform"]
@@ -1380,6 +1437,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="FloatingPlatforms/Platform2"]
 frames = SubResource( 131 )
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloatingPlatforms/Platform2"]
@@ -1394,6 +1452,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="FloatingPlatforms/Platform3"]
 frames = SubResource( 131 )
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloatingPlatforms/Platform3"]
@@ -1408,7 +1467,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="FloatingPlatforms/Platform4"]
 frames = SubResource( 131 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloatingPlatforms/Platform4"]
@@ -1420,11 +1479,27 @@ position = Vector2( 141, 242 )
 scale = Vector2( 1.25, 1.25 )
 
 [node name="Strawberry" parent="Points" instance=ExtResource( 15 )]
-position = Vector2( 26.4, 34.88 )
+position = Vector2( 552.8, -140.8 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="Strawberry11" parent="Points" instance=ExtResource( 15 )]
+position = Vector2( 269.6, -348.8 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="Strawberry12" parent="Points" instance=ExtResource( 15 )]
+position = Vector2( 215.2, -582.4 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="Strawberry13" parent="Points" instance=ExtResource( 15 )]
+position = Vector2( 616.8, -637.6 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="Strawberry14" parent="Points" instance=ExtResource( 15 )]
+position = Vector2( 984.8, -628.8 )
 scale = Vector2( 0.8, 0.8 )
 
 [node name="Strawberry2" parent="Points" instance=ExtResource( 15 )]
-position = Vector2( 26.4, 34.88 )
+position = Vector2( 859.2, -129.6 )
 scale = Vector2( 0.8, 0.8 )
 
 [node name="Strawberry3" parent="Points" instance=ExtResource( 15 )]
@@ -1448,7 +1523,7 @@ position = Vector2( 412, -1.60001 )
 scale = Vector2( 0.8, 0.8 )
 
 [node name="Strawberry8" parent="Points" instance=ExtResource( 15 )]
-position = Vector2( 15.2, 36.8 )
+position = Vector2( 8, 36.8 )
 scale = Vector2( 0.8, 0.8 )
 
 [node name="Strawberry9" parent="Points" instance=ExtResource( 15 )]
@@ -1489,7 +1564,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="EndZone"]
 frames = SubResource( 162 )
-frame = 5
+frame = 7
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndZone"]
@@ -1581,8 +1656,17 @@ autoplay = true
 [connection signal="character_death" from="Player" to="HUD" method="_on_character_death"]
 [connection signal="hp_changed" from="Player" to="HUD" method="_on_Player_hp_changed"]
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_Timer_timeout"]
+[connection signal="collision_with_enemy" from="Node2D/SpikeHead" to="Player" method="_on_collision_with_enemy"]
+[connection signal="collision_with_enemy" from="Node2D/SpikeHead2" to="Player" method="_on_collision_with_enemy"]
+[connection signal="collision_with_enemy" from="Node2D/SpikeHead3" to="Player" method="_on_collision_with_enemy"]
 [connection signal="collision_with_enemy" from="AngryRock" to="Player" method="_on_collision_with_enemy"]
+[connection signal="collision_with_enemy" from="AngryRock2" to="Player" method="_on_collision_with_enemy"]
+[connection signal="collision_with_enemy" from="AngryRock3" to="Player" method="_on_collision_with_enemy"]
 [connection signal="point_collected" from="Points/Strawberry" to="HUD" method="_on_Strawberry_point_collected"]
+[connection signal="point_collected" from="Points/Strawberry11" to="HUD" method="_on_Strawberry_point_collected"]
+[connection signal="point_collected" from="Points/Strawberry12" to="HUD" method="_on_Strawberry_point_collected"]
+[connection signal="point_collected" from="Points/Strawberry13" to="HUD" method="_on_Strawberry_point_collected"]
+[connection signal="point_collected" from="Points/Strawberry14" to="HUD" method="_on_Strawberry_point_collected"]
 [connection signal="point_collected" from="Points/Strawberry2" to="HUD" method="_on_Strawberry_point_collected"]
 [connection signal="point_collected" from="Points/Strawberry3" to="HUD" method="_on_Strawberry_point_collected"]
 [connection signal="point_collected" from="Points/Strawberry4" to="HUD" method="_on_Strawberry_point_collected"]
