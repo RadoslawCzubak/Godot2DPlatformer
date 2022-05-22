@@ -66,10 +66,11 @@ margin_left = 42.0
 margin_top = 2.0
 margin_right = 209.0
 margin_bottom = 95.0
+rect_scale = Vector2( 0.825336, 1.011 )
 custom_fonts/font = SubResource( 4 )
-text = "Collect all
+text = "Collect as many
 
-to win!"
+as you can!"
 align = 1
 
 [node name="TextureRect2" type="TextureRect" parent="Panel"]

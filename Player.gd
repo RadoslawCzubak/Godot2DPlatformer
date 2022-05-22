@@ -91,3 +91,9 @@ func _on_level_ended():
 func _on_Timer_timeout():
 	speed = set_speed
 	get_tree().change_scene("res://Prefabs scenes/TitleMenu.tscn")
+
+
+func _on_countdown_end():
+	emit_signal("character_death")
+	speed = 0
+	$Timer.start()

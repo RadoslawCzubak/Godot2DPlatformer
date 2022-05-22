@@ -1,10 +1,23 @@
 extends CanvasLayer
 
 var coins = 0
+export var countdown = 60.0
+var countdown_run = true
 
+signal countdown_end
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$PointsLabel/Label.text = "x " + String(coins)
+
+
+func _process(delta):
+	if countdown_run:	
+		if countdown > 0:
+			countdown -= delta
+			$Countdown.text = String(ceil(countdown))+" s"
+		else:
+			emit_signal("countdown_end")
+		
 
 
 func _on_Strawberry_point_collected():
