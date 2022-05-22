@@ -84,8 +84,9 @@ func trampolineJump():
 
 func _on_level_ended():
 	print("You won!")
+	$Timer.start()
 
 
 func _on_Timer_timeout():
 	speed = set_speed
-	get_tree().change_scene("res://Node2D.tscn")
+	get_tree().change_scene("res://Prefabs scenes/TitleMenu.tscn")
