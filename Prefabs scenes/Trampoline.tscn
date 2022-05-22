@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Models/Obstacles/Trampoline/Jump (28x28).png" type="Texture" id=1]
 [ext_resource path="res://Prefabs scenes/Trampoline.gd" type="Script" id=2]
+[ext_resource path="res://Music/157569__elektroproleter__cartoon-jump.wav" type="AudioStream" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -64,5 +65,8 @@ frames = SubResource( 9 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.75, 9.5 )
 shape = SubResource( 10 )
+
+[node name="TrampolineJump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

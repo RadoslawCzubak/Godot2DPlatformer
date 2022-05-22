@@ -1,4 +1,4 @@
-[gd_scene load_steps=162 format=2]
+[gd_scene load_steps=164 format=2]
 
 [ext_resource path="res://Models/Virtual Guy/Jump (32x32).png" type="Texture" id=1]
 [ext_resource path="res://Models/Virtual Guy/Double Jump (32x32).png" type="Texture" id=2]
@@ -23,6 +23,38 @@
 [ext_resource path="res://Models/End/End (Pressed) (64x64).png" type="Texture" id=21]
 [ext_resource path="res://fresh_fruit/Fresh Fruit.ttf" type="DynamicFontData" id=22]
 [ext_resource path="res://Prefabs scenes/Tree_decor.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Music/Intro Theme.mp3" type="AudioStream" id=24]
+[ext_resource path="res://Music/Retro Jump Classic 08.wav" type="AudioStream" id=25]
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 128, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 160, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=12]
 flags = 4
@@ -89,36 +121,6 @@ flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 352, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=13]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=14]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=15]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 64, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=16]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 96, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=17]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 128, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=18]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 160, 0, 32, 32 )
-
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 3 )
@@ -176,6 +178,11 @@ region = Rect2( 320, 0, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=31]
 animations = [ {
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"loop": true,
+"name": "double jump",
+"speed": 15.0
+}, {
 "frames": [ SubResource( 12 ) ],
 "loop": true,
 "name": "jump",
@@ -185,11 +192,6 @@ animations = [ {
 "loop": true,
 "name": "walking",
 "speed": 20.0
-}, {
-"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
-"loop": true,
-"name": "double jump",
-"speed": 15.0
 }, {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
 "loop": true,
@@ -1271,7 +1273,7 @@ drag_margin_v_enabled = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 31 )
 animation = "idle"
-frame = 6
+frame = 7
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -1282,6 +1284,10 @@ shape = SubResource( 39 )
 
 [node name="Timer" type="Timer" parent="Player"]
 wait_time = 3.0
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource( 25 )
+volume_db = -6.0
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 32 )
@@ -1334,7 +1340,7 @@ position = Vector2( 55, 320 )
 
 [node name="StartFlag" type="AnimatedSprite" parent="StartFlag"]
 frames = SubResource( 76 )
-frame = 3
+frame = 6
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartFlag"]
@@ -1355,7 +1361,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="FloatingPlatforms/Platform"]
 frames = SubResource( 131 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloatingPlatforms/Platform"]
@@ -1370,7 +1376,6 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="FloatingPlatforms/Platform2"]
 frames = SubResource( 131 )
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloatingPlatforms/Platform2"]
@@ -1385,7 +1390,6 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="FloatingPlatforms/Platform3"]
 frames = SubResource( 131 )
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloatingPlatforms/Platform3"]
@@ -1400,6 +1404,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="FloatingPlatforms/Platform4"]
 frames = SubResource( 131 )
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloatingPlatforms/Platform4"]
@@ -1480,7 +1485,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="EndZone"]
 frames = SubResource( 162 )
-frame = 3
+frame = 6
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndZone"]
@@ -1545,6 +1550,11 @@ margin_right = 723.0
 margin_bottom = 314.0
 custom_fonts/normal_font = SubResource( 164 )
 text = "You won!"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 24 )
+volume_db = -15.0
+autoplay = true
 
 [connection signal="collision_with_enemy" from="Saws/Saw" to="Player" method="_on_collision_with_enemy"]
 [connection signal="collision_with_enemy" from="Saws/Saw2" to="Player" method="_on_collision_with_enemy"]

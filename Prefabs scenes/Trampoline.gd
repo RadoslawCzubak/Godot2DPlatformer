@@ -13,3 +13,4 @@ func _ready():
 func _on_body_entered(body):
 	body.trampolineJump()
 	$AnimatedSprite.play()
+	$TrampolineJump.play()
